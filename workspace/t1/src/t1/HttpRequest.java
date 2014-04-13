@@ -69,8 +69,10 @@ public final class HttpRequest implements Runnable {
 		     printw.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");
 		     printw.println("<title>Contactos</title>");
 		     printw.println("</head>");   
-		     printw.println("<body>");  
-		     printw.println("<ul>");
+		     printw.println("<body> <center>"); 
+		     printw.println("<h2> <b> VER CONTACTOS </b> </h2>"); 
+		     printw.println("<table style=\"text-align:center\" width=\"50%\" border=\"1\" bordercolor=\"#000000\">");
+		     printw.println("<tr> <th> Nombre </th> <th> IP </th> <th> Puerto </th> </tr>");
 		     
 		     //Leer desde archivo servidor. 
 		     // Abrimos el archivo
@@ -79,22 +81,33 @@ public final class HttpRequest implements Runnable {
 	         DataInputStream entrada = new DataInputStream(leer);
 	         // Creamos el Buffer de Lectura
 	         BufferedReader buffer = new BufferedReader(new InputStreamReader(entrada));
+	         
 	         String datos;
+	            
 	         // Leer el archivo linea por linea
 	         while ((datos = buffer.readLine()) != null) {
 	        	 
+	        	 StringTokenizer div = new StringTokenizer(datos, " "); 
+	        	 while (div.hasMoreTokens()){
+	        		 String nombre = div.nextToken();
+	        		 String dip = div.nextToken();
+	        		 String puerto = div.nextToken();
+	        	 
 	                // Imprimimos la línea por pantalla
-	        	 	printw.println("<li>");
-	        	    //System.out.println(datos);
-	            	printw.println(datos);  
-	            	printw.println("</li>");
+	        	 	printw.println("<tr>");
+	            	printw.println("<td>" + nombre + "</td>");
+	            	printw.println("<td>" + dip + "</td>");
+	            	printw.println("<td>" + puerto + "</td>");
+	            	printw.println("</tr>");
+	            	}
 	          }
 	          // Cerramos el archivo
 	          entrada.close();
 		     
-	         printw.println("</ul>");
-	         printw.println("<a href=\"index.html\">Volver</a></li>");
-		     printw.println("</body>");  
+	         printw.println("</table>");
+	         printw.println("</br>");
+	         printw.println("<a href=\"index.html\" style='text-decoration:none;color:black'> <b> Volver </b> </a>");
+		     printw.println("</center> </body>");  
 		     printw.println("</html>");
 		     
 		     printw.close();

@@ -1,28 +1,31 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>    
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Agregar Contacto</title>
-    </head>
+    </head>  
     <body>
-        <form action="index.html" enctype="multipart/form-data" method="post">
-            <table>
-                <tr>
-                    <td>Nombre</td>
-                    <td><input type="text" name="name"></td>
-                </tr>
-                <tr>
-                    <td>Dirección IP</td>
-                    <td><input type="text" name="dir"></td>
-                </tr>
-                <tr>
-                    <td>Puerto</td>
-                    <td><input type="text" name="port"></td>
-                </tr>
-            </table>
-             <input type="submit" value="Guardar Contacto"/>
-			 <input type="reset"/>
-       </form>
-       <a href="index.html">Volver</a>
+		<center>
+			<h2> <b> AGREGAR CONTACTOS </b> </h2>
+        		<form action="agregar.html" enctype="multipart/form-data" method="post">
+            		<table>
+                		<tr>
+                    		<td> Nombre </td>
+                    		<td> <input type="text" name="name"> </td>
+                		</tr>
+                		<tr>
+                    		<td> Dirección IP </td>
+                    		<td> <input type="text" name="dir"> </td>
+                		</tr>
+                		<tr>
+                    		<td> Puerto</td>
+                    		<td> <input type="text" name="port"> </td>
+                		</tr>
+            		</table>
+             		<input type="submit" value="Agregar Contacto"/>
+       			</form>
+				</br>
+       			<a href="index.html" style='text-decoration:none;color:black'> <b> Volver </b> </a>
+		</center>
     </body>
 </html>

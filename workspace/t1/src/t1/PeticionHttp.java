@@ -11,7 +11,7 @@ public final class PeticionHttp implements Runnable {
 	public PeticionHttp(Socket socket) throws Exception {
 		this.socket = socket;
 	}
-	// Implementación del método run()
+	// Implementaciï¿½n del mï¿½todo run()
 	public void run() {
 		try	{
 			processRequest();
@@ -24,14 +24,14 @@ public final class PeticionHttp implements Runnable {
 		InputStream instream = socket.getInputStream();  
 		DataOutputStream outstream = new DataOutputStream(socket.getOutputStream());  	 
 		BufferedReader lecbuffer = new BufferedReader(new InputStreamReader(instream));
-		// A continuación con propositos de ruteo, se imprimen las lineas que arroja la solicitud
+		// A continuaciï¿½n con propositos de ruteo, se imprimen las lineas que arroja la solicitud
 		String lineareq = lecbuffer.readLine();   
 		System.out.println();
 		System.out.println(lineareq); 
 		
 		InetAddress direccion = socket.getInetAddress();
 		String ipstr= direccion.getHostAddress();
-		System.out.println("Dirección IP: " + ipstr);
+		System.out.println("Direcciï¿½n IP: " + ipstr);
 
 		StringTokenizer tokens = new StringTokenizer(lineareq);
 		String metodo = tokens.nextToken();
@@ -72,7 +72,7 @@ public final class PeticionHttp implements Runnable {
 	        		 String dip = div.nextToken();
 	        		 String puerto = div.nextToken();
 
-	                // Imprimimos la línea por pantalla
+	                // Imprimimos la lï¿½nea por pantalla
 	        	 	printw.println("<tr>");
 	            	printw.println("<td>" + nombre + "</td>");
 	            	printw.println("<td>" + dip + "</td>");
@@ -168,8 +168,8 @@ public final class PeticionHttp implements Runnable {
 	   tipocontenido = "Content-Type: text/html" + CRLF;
 	   cuerpo = "<html>" + "<head><title>Not Found</title></head>" + "<body>Not Found</body></html>";
 	}
-	// Se termina la construcción de la respuesta
-	// Se envía la linea de estado
+	// Se termina la construcciï¿½n de la respuesta
+	// Se envï¿½a la linea de estado
 	outstream.writeBytes(status);
 	// Contenido
 	outstream.writeBytes(tipocontenido);
@@ -188,7 +188,7 @@ public final class PeticionHttp implements Runnable {
 	socket.close();
 	}
 
-	// Necesario para la función de escritura
+	// Necesario para la funciï¿½n de escritura
 	private static void sendBytes(FileInputStream fis, OutputStream outstream)
 	throws Exception{
 		// Se construye un buffer para el socket
@@ -200,7 +200,7 @@ public final class PeticionHttp implements Runnable {
 			outstream.write(buffer, 0, bytes);
 		}
 	}
-	// De acuerdo a lo investigado lo óptimo es mantener varios tipos de archivos para su reconocimiento, aunque en la tarea se usen solo .html
+	// De acuerdo a lo investigado lo ï¿½ptimo es mantener varios tipos de archivos para su reconocimiento, aunque en la tarea se usen solo .html
 	private static String contentType(String fileName){
 		if(fileName.endsWith(".htm") || fileName.endsWith(".html"))
 		return "text/html";
